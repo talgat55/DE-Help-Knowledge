@@ -1,0 +1,4 @@
+pymupdf
+mistralai
+python-dotenv
+python-slugify
