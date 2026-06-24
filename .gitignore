@@ -58,6 +58,7 @@ htmlcov/
 .ipynb_checkpoints/
 
 # ETL / data (local artifacts)
+input/
 data/raw/
 data/staging/
 data/processed/
