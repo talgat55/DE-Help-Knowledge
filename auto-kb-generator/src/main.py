@@ -29,6 +29,10 @@ def save_article(brand, model, year, slug, content):
     os.makedirs(folder, exist_ok=True)
 
     path = f"{folder}/{slug}.md"
+    if os.path.exists(path):
+        print(f"skip exist: {path}")
+        return
+
     with open(path, "w", encoding="utf-8") as f:
         f.write(content)
 
@@ -66,7 +70,7 @@ def main():
 
     article_template = (PROJECT_ROOT / "prompts" / "generate_article.txt").read_text(encoding="utf-8")
 
-    for topic in topics:
+    for topic in topics[:5]:
         prompt = article_template.format(
             brand=brand,
             model=model,
