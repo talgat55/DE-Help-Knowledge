@@ -5,16 +5,19 @@ from dotenv import load_dotenv
 from mistralai.client import Mistral
 from pdf_reader import read_pdf
 from chunker import split_text
-from topic_extractor import extract_topics_from_text
+from storage import save_text, save_json, load_json
+from ai_client import chat_complete
+from topic_extractor import extract_topics_from_chunks
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 load_dotenv()
 
-client = Mistral(api_key=os.getenv("MISTRAL_API_KEY"))
+client = Mistral(api_key=os.getenv("MISTRAL_API_KEY"), timeout_ms=180_000)
 
 def ask_ai(prompt: str) -> str:
-    response = client.chat.complete(
+    response = chat_complete(
+        client,
         model="mistral-medium-latest",
         messages=[
             {"role": "user", "content": prompt}
@@ -25,7 +28,7 @@ def ask_ai(prompt: str) -> str:
     return response.choices[0].message.content
 
 def save_article(brand, model, year, slug, content):
-    folder = f"output/{brand.lower()}/{model.lower().replace(' ', '-')}/{year}"
+    folder = f"data/gold/{brand.lower()}/{model.lower().replace(' ', '-')}/{year}"
     os.makedirs(folder, exist_ok=True)
 
     path = f"{folder}/{slug}.md"
@@ -56,15 +59,26 @@ def main():
     pdf_path = "input/Mercedes-Benz-A-Class_2020_EN-US_US_963552be46.pdf"
 
     full_text = read_pdf(pdf_path)
-    #chunks = split_text(full_text)
+    chunks = split_text(full_text)
+    base_name = f"{brand.lower()}_{model.lower().replace(' ', '_')}_{year}"
+    save_text(f"data/bronze/{base_name}_raw.txt", full_text)
+    save_json(f"data/silver/{base_name}_chunks.json", chunks)
 
-    topics = extract_topics_from_text(
-        client=client,
-        text=full_text,
-        brand=brand,
-        model=model,
-        year=year,
-    )
+    topics_path = f"data/silver/{base_name}_topics.json"
+    if os.path.exists(topics_path):
+        topics = load_json(topics_path)
+        print(f"Loaded cached topics: {topics_path}")
+    else:
+        max_chunks = int(os.getenv("MAX_CHUNKS_FOR_TOPICS", "3"))
+        topics = extract_topics_from_chunks(
+            client=client,
+            chunks=chunks,
+            brand=brand,
+            model=model,
+            year=year,
+            max_chunks=max_chunks,
+        )
+        save_json(topics_path, topics)
 
     save_topics(brand, model, year, topics)
 
@@ -79,7 +93,7 @@ def main():
             problem=topic["problem"],
             slug=topic["slug"],
         )
-        prompt += f"\n\nТекст мануала:\n{full_text[:30000]}\n"
+        prompt += f"\n\nТекст мануала:\n{full_text[:12000]}\n"
 
         article = ask_ai(prompt)
         save_article(brand, model, year, topic["slug"], article)

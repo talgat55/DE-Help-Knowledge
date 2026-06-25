@@ -2,7 +2,10 @@ import json
 import re
 from pathlib import Path
 
+from ai_client import chat_complete
+
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
+MAX_TEXT_CHARS = 12_000
 
 
 def clean_json_response(text: str) -> str:
@@ -61,10 +64,11 @@ model: {model}
 year: {year}
 
 Текст мануала:
-{text[:30000]}
+{text[:MAX_TEXT_CHARS]}
 """
 
-    response = client.chat.complete(
+    response = chat_complete(
+        client,
         model="mistral-small-latest",
         messages=[
             {
@@ -82,3 +86,26 @@ year: {year}
 
     content = response.choices[0].message.content
     return parse_topics_response(content)
+
+
+def extract_topics_from_chunks(
+    client,
+    chunks: list[str],
+    brand: str,
+    model: str,
+    year: str,
+    max_chunks: int | None = None,
+) -> list[dict]:
+    topics_by_slug: dict[str, dict] = {}
+    chunks_to_process = chunks[:max_chunks] if max_chunks else chunks
+
+    for index, chunk in enumerate(chunks_to_process, start=1):
+        print(f"Extracting topics from chunk {index}/{len(chunks_to_process)}...")
+        chunk_topics = extract_topics_from_text(client, chunk, brand, model, year)
+
+        for topic in chunk_topics:
+            slug = topic.get("slug")
+            if slug and slug not in topics_by_slug:
+                topics_by_slug[slug] = topic
+
+    return list(topics_by_slug.values())
