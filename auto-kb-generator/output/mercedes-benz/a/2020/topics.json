@@ -1,0 +1,724 @@
+[
+  {
+    "title": "Check Engine",
+    "slug": "check-engine",
+    "problem": "Горит индикатор Check Engine",
+    "category": "engine",
+    "sourceHint": "Display messages and warning/indicator lamps (страница 13, 15, 468)"
+  },
+  {
+    "title": "Электрическая неисправность",
+    "slug": "electrical-malfunction",
+    "problem": "Горит индикатор электрической неисправности",
+    "category": "electrics",
+    "sourceHint": "Display messages and warning/indicator lamps (страница 13, 15, 519)"
+  },
+  {
+    "title": "Температура охлаждающей жидкости",
+    "slug": "coolant-temperature",
+    "problem": "Индикатор перегрева или переохлаждения охлаждающей жидкости",
+    "category": "engine",
+    "sourceHint": "Display messages and warning/indicator lamps (страница 15, 519)"
+  },
+  {
+    "title": "Неисправность электрического стояночного тормоза",
+    "slug": "electric-parking-brake-malfunction",
+    "problem": "Горит жёлтый индикатор неисправности электрического стояночного тормоза",
+    "category": "brakes",
+    "sourceHint": "Display messages and warning/indicator lamps (страница 13, 15, 522)"
+  },
+  {
+    "title": "Электрический стояночный тормоз включён",
+    "slug": "electric-parking-brake-applied",
+    "problem": "Горит красный индикатор включённого электрического стояночного тормоза",
+    "category": "brakes",
+    "sourceHint": "Display messages and warning/indicator lamps (страница 13, 15, 522)"
+  },
+  {
+    "title": "Неисправность ABS",
+    "slug": "abs-malfunction",
+    "problem": "Горит индикатор неисправности ABS",
+    "category": "brakes",
+    "sourceHint": "Display messages and warning/indicator lamps (страница 13, 15, 525)"
+  },
+  {
+    "title": "ESP отключён",
+    "slug": "esp-off",
+    "problem": "Горит индикатор отключённого ESP",
+    "category": "safety",
+    "sourceHint": "Display messages and warning/indicator lamps (страница 13, 15, 525)"
+  },
+  {
+    "title": "ESP активен",
+    "slug": "esp-active",
+    "problem": "Горит индикатор активного ESP",
+    "category": "safety",
+    "sourceHint": "Display messages and warning/indicator lamps (страница 13, 15, 525)"
+  },
+  {
+    "title": "Не пристёгнут ремень безопасности",
+    "slug": "seat-belt-not-fastened",
+    "problem": "Горит индикатор непристёгнутого ремня безопасности",
+    "category": "safety",
+    "sourceHint": "Display messages and warning/indicator lamps (страница 13, 15, 517)"
+  },
+  {
+    "title": "Подушка безопасности пассажира",
+    "slug": "passenger-airbag",
+    "problem": "Горит индикатор подушки безопасности пассажира",
+    "category": "safety",
+    "sourceHint": "Display messages and warning/indicator lamps (страница 9, 45)"
+  },
+  {
+    "title": "Неисправность системы ограничения подушек безопасности",
+    "slug": "restraint-system-malfunction",
+    "problem": "Горит индикатор неисправности системы ограничения подушек безопасности",
+    "category": "safety",
+    "sourceHint": "Display messages and warning/indicator lamps (страница 13, 15, 517)"
+  },
+  {
+    "title": "Низкий уровень топлива",
+    "slug": "low-fuel-level",
+    "problem": "Горит индикатор низкого уровня топлива",
+    "category": "fuel",
+    "sourceHint": "Display messages and warning/indicator lamps (страница 13, 15, 519)"
+  },
+  {
+    "title": "Резерв топлива",
+    "slug": "fuel-reserve",
+    "problem": "Горит индикатор резерва топлива с указанием места заправочной горловины",
+    "category": "fuel",
+    "sourceHint": "Display messages and warning/indicator lamps (страница 13, 15, 519)"
+  },
+  {
+    "title": "Неисправность электроусилителя руля",
+    "slug": "electric-power-steering-malfunction",
+    "problem": "Горит индикатор неисправности электроусилителя руля",
+    "category": "steering",
+    "sourceHint": "Display messages and warning/indicator lamps (страница 13, 15, 518)"
+  },
+  {
+    "title": "Предупреждение о дистанции",
+    "slug": "distance-warning",
+    "problem": "Горит индикатор предупреждения о слишком малой дистанции до впереди идущего автомобиля",
+    "category": "safety",
+    "sourceHint": "Display messages and warning/indicator lamps (страница 13, 15, 524)"
+  },
+  {
+    "title": "Неисправность тормозной системы",
+    "slug": "brakes-malfunction",
+    "problem": "Горит красный индикатор неисправности тормозной системы",
+    "category": "brakes",
+    "sourceHint": "Display messages and warning/indicator lamps (страница 13, 15, 522)"
+  },
+  {
+    "title": "Мониторинг давления в шинах",
+    "slug": "tire-pressure-monitor",
+    "problem": "Горит индикатор системы мониторинга давления в шинах",
+    "category": "tires",
+    "sourceHint": "Display messages and warning/indicator lamps (страница 13, 528)"
+  },
+  {
+    "title": "Замена масла и фильтров",
+    "slug": "oil-change",
+    "problem": "Необходимость замены масла и масляного фильтра",
+    "category": "maintenance",
+    "sourceHint": "ASSYST PLUS service interval display (страница 385)"
+  },
+  {
+    "title": "Замена воздушного фильтра",
+    "slug": "air-filter-replacement",
+    "problem": "Необходимость замены воздушного фильтра",
+    "category": "maintenance",
+    "sourceHint": "ASSYST PLUS service interval display (страница 385)"
+  },
+  {
+    "title": "Замена топливного фильтра",
+    "slug": "fuel-filter-replacement",
+    "problem": "Необходимость замены топливного фильтра",
+    "category": "maintenance",
+    "sourceHint": "ASSYST PLUS service interval display (страница 385)"
+  },
+  {
+    "title": "Замена тормозной жидкости",
+    "slug": "brake-fluid-replacement",
+    "problem": "Необходимость замены тормозной жидкости",
+    "category": "maintenance",
+    "sourceHint": "ASSYST PLUS service interval display (страница 385)"
+  },
+  {
+    "title": "Замена охлаждающей жидкости",
+    "slug": "coolant-replacement",
+    "problem": "Необходимость замены охлаждающей жидкости",
+    "category": "maintenance",
+    "sourceHint": "ASSYST PLUS service interval display (страница 385)"
+  },
+  {
+    "title": "Замена свечей зажигания",
+    "slug": "spark-plugs-replacement",
+    "problem": "Необходимость замены свечей зажигания",
+    "category": "maintenance",
+    "sourceHint": "ASSYST PLUS service interval display (страница 385)"
+  },
+  {
+    "title": "Замена ремня ГРМ",
+    "slug": "timing-belt-replacement",
+    "problem": "Необходимость замены ремня ГРМ",
+    "category": "maintenance",
+    "sourceHint": "ASSYST PLUS service interval display (страница 385)"
+  },
+  {
+    "title": "Проверка уровня масла",
+    "slug": "oil-level-check",
+    "problem": "Как правильно проверить уровень масла в двигателе",
+    "category": "maintenance",
+    "sourceHint": "Engine compartment (страница 386)"
+  },
+  {
+    "title": "Проверка уровня охлаждающей жидкости",
+    "slug": "coolant-level-check",
+    "problem": "Как правильно проверить уровень охлаждающей жидкости",
+    "category": "maintenance",
+    "sourceHint": "Engine compartment (страница 386)"
+  },
+  {
+    "title": "Проверка уровня тормозной жидкости",
+    "slug": "brake-fluid-level-check",
+    "problem": "Как правильно проверить уровень тормозной жидкости",
+    "category": "maintenance",
+    "sourceHint": "Engine compartment (страница 386)"
+  },
+  {
+    "title": "Проверка уровня жидкости гидроусилителя руля",
+    "slug": "power-steering-fluid-check",
+    "problem": "Как правильно проверить уровень жидкости гидроусилителя руля",
+    "category": "maintenance",
+    "sourceHint": "Engine compartment (страница 386)"
+  },
+  {
+    "title": "Проверка уровня жидкости омывателя",
+    "slug": "washer-fluid-check",
+    "problem": "Как правильно проверить и долить жидкость омывателя",
+    "category": "maintenance",
+    "sourceHint": "Engine compartment (страница 386)"
+  },
+  {
+    "title": "Замена щёток стеклоочистителя",
+    "slug": "wipers-replacement",
+    "problem": "Как правильно заменить щётки стеклоочистителя",
+    "category": "maintenance",
+    "sourceHint": "Windshield wiper and windshield washer system (страница 120)"
+  },
+  {
+    "title": "Проверка давления в шинах",
+    "slug": "tire-pressure-check",
+    "problem": "Как правильно проверить и отрегулировать давление в шинах",
+    "category": "tires",
+    "sourceHint": "Tire pressure (страница 424)"
+  },
+  {
+    "title": "Установка зимних шин",
+    "slug": "winter-tires-installation",
+    "problem": "Когда и как устанавливать зимние шины",
+    "category": "tires",
+    "sourceHint": "Notes on snow chains (страница 423)"
+  },
+  {
+    "title": "Использование цепей противоскольжения",
+    "slug": "snow-chains-usage",
+    "problem": "Как правильно использовать цепи противоскольжения",
+    "category": "tires",
+    "sourceHint": "Notes on snow chains (страница 423)"
+  },
+  {
+    "title": "Замена колеса",
+    "slug": "wheel-replacement",
+    "problem": "Как правильно заменить колесо в случае прокола",
+    "category": "tires",
+    "sourceHint": "Changing a wheel (страница 443)"
+  },
+  {
+    "title": "Использование аварийного колеса",
+    "slug": "emergency-spare-wheel-usage",
+    "problem": "Как правильно использовать аварийное колесо",
+    "category": "tires",
+    "sourceHint": "Emergency spare wheel (страница 452)"
+  },
+  {
+    "title": "Проверка уровня топлива",
+    "slug": "fuel-level-check",
+    "problem": "Как правильно проверить уровень топлива и где находится заправочная горловина",
+    "category": "fuel",
+    "sourceHint": "Refueling (страница 147)"
+  },
+  {
+    "title": "Тип топлива для автомобиля",
+    "slug": "fuel-type",
+    "problem": "Какой тип топлива рекомендуется для автомобиля",
+    "category": "fuel",
+    "sourceHint": "Refueling (страница 147)"
+  },
+  {
+    "title": "Заправка автомобиля",
+    "slug": "refueling-procedure",
+    "problem": "Как правильно заправлять автомобиль",
+    "category": "fuel",
+    "sourceHint": "Refueling (страница 147)"
+  },
+  {
+    "title": "Использование ECO Start/Stop",
+    "slug": "eco-start-stop-usage",
+    "problem": "Как правильно использовать функцию ECO Start/Stop для экономии топлива",
+    "category": "fuel",
+    "sourceHint": "ECO start/stop function (страница 138)"
+  },
+  {
+    "title": "Настройка климат-контроля",
+    "slug": "climate-control-settings",
+    "problem": "Как настроить климат-контроль в автомобиле",
+    "category": "climate",
+    "sourceHint": "Operating the climate control system (страница 126)"
+  },
+  {
+    "title": "Использование подогрева сидений",
+    "slug": "seat-heating-usage",
+    "problem": "Как включить и использовать подогрев сидений",
+    "category": "comfort",
+    "sourceHint": "Door control panel and seat adjustment (страница 19)"
+  },
+  {
+    "title": "Использование вентиляции сидений",
+    "slug": "seat-ventilation-usage",
+    "problem": "Как включить и использовать вентиляцию сидений",
+    "category": "comfort",
+    "sourceHint": "Door control panel and seat adjustment (страница 19)"
+  },
+  {
+    "title": "Настройка памяти сидений",
+    "slug": "seat-memory-settings",
+    "problem": "Как настроить память положения сидений",
+    "category": "comfort",
+    "sourceHint": "Operating the memory function (страница 19, 98)"
+  },
+  {
+    "title": "Регулировка рулевого колеса",
+    "slug": "steering-wheel-adjustment",
+    "problem": "Как правильно отрегулировать рулевое колесо по высоте и вылету",
+    "category": "comfort",
+    "sourceHint": "Steering wheel (страница 96)"
+  },
+  {
+    "title": "Использование подголовников",
+    "slug": "headrest-adjustment",
+    "problem": "Как правильно отрегулировать подголовники",
+    "category": "safety",
+    "sourceHint": "Door control panel and seat adjustment (страница 19)"
+  },
+  {
+    "title": "Безопасная перевозка детей",
+    "slug": "child-transport-safety",
+    "problem": "Как безопасно перевозить детей в автомобиле",
+    "category": "safety",
+    "sourceHint": "Safely transporting children in the vehicle (страница 49)"
+  },
+  {
+    "title": "Запрет на использование детских кресел против хода движения",
+    "slug": "rearward-facing-child-seat-warning",
+    "problem": "Почему нельзя использовать детские кресла против хода движения при включённой подушке безопасности пассажира",
+    "category": "safety",
+    "sourceHint": "Front passenger airbag warning (страница 2)"
+  },
+  {
+    "title": "Использование детских кресел",
+    "slug": "child-seat-usage",
+    "problem": "Как правильно установить и использовать детские кресла",
+    "category": "safety",
+    "sourceHint": "Safely transporting children in the vehicle (страница 49)"
+  },
+  {
+    "title": "Перевозка домашних животных",
+    "slug": "pet-transport",
+    "problem": "Как безопасно перевозить домашних животных в автомобиле",
+    "category": "safety",
+    "sourceHint": "Notes on pets in the vehicle (страница 63)"
+  },
+  {
+    "title": "Использование детского замка на окнах",
+    "slug": "child-lock-windows",
+    "problem": "Как включить и использовать детский замок на задних окнах",
+    "category": "safety",
+    "sourceHint": "Door control panel and seat adjustment (страница 19)"
+  },
+  {
+    "title": "Открытие и закрытие дверей",
+    "slug": "door-operation",
+    "problem": "Как правильно открывать и закрывать двери автомобиля",
+    "category": "comfort",
+    "sourceHint": "Doors (страница 70)"
+  },
+  {
+    "title": "Использование SmartKey",
+    "slug": "smartkey-usage",
+    "problem": "Как пользоваться системой SmartKey для открытия/закрытия автомобиля",
+    "category": "comfort",
+    "sourceHint": "SmartKey (страница 65)"
+  },
+  {
+    "title": "Открытие и закрытие багажника",
+    "slug": "trunk-operation",
+    "problem": "Как правильно открывать и закрывать багажник",
+    "category": "comfort",
+    "sourceHint": "Trunk (страница 74)"
+  },
+  {
+    "title": "Использование панорамной крыши",
+    "slug": "panoramic-roof-usage",
+    "problem": "Как правильно открывать и закрывать панорамную крышу",
+    "category": "comfort",
+    "sourceHint": "Overhead control panel (страница 17)"
+  },
+  {
+    "title": "Использование солнцезащитных шторок",
+    "slug": "sun-blinds-usage",
+    "problem": "Как правильно использовать солнцезащитные шторки",
+    "category": "comfort",
+    "sourceHint": "Overhead control panel (страница 17)"
+  },
+  {
+    "title": "Настройка внутреннего освещения",
+    "slug": "interior-lighting-settings",
+    "problem": "Как настроить внутреннее освещение автомобиля",
+    "category": "comfort",
+    "sourceHint": "Overhead control panel (страница 17)"
+  },
+  {
+    "title": "Использование наружного освещения",
+    "slug": "exterior-lighting-usage",
+    "problem": "Как правильно использовать наружное освещение (ближний/дальний свет, габариты)",
+    "category": "safety",
+    "sourceHint": "Exterior lighting (страница 113)"
+  },
+  {
+    "title": "Использование стеклоочистителей и омывателей",
+    "slug": "wipers-washer-usage",
+    "problem": "Как правильно использовать стеклоочистители и омыватели",
+    "category": "safety",
+    "sourceHint": "Windshield wiper and windshield washer system (страница 120)"
+  },
+  {
+    "title": "Регулировка зеркал заднего вида",
+    "slug": "mirrors-adjustment",
+    "problem": "Как правильно отрегулировать зеркала заднего вида",
+    "category": "safety",
+    "sourceHint": "Mirrors (страница 122)"
+  },
+  {
+    "title": "Использование солнцезащитных козырьков",
+    "slug": "sun-visors-usage",
+    "problem": "Как правильно использовать солнцезащитные козырьки",
+    "category": "comfort",
+    "sourceHint": "Operating the sun visors (страница 125)"
+  },
+  {
+    "title": "Настройка дисплея приборной панели",
+    "slug": "instrument-display-settings",
+    "problem": "Как настроить дизайн дисплея приборной панели",
+    "category": "comfort",
+    "sourceHint": "Adjusting the design of the Instrument Display (страница 217)"
+  },
+  {
+    "title": "Использование Head-up Display",
+    "slug": "head-up-display-usage",
+    "problem": "Как правильно использовать Head-up Display",
+    "category": "comfort",
+    "sourceHint": "Head-up Display (страница 227)"
+  },
+  {
+    "title": "Настройка системы голосового управления MBUX",
+    "slug": "voice-control-settings",
+    "problem": "Как настроить и использовать систему голосового управления MBUX",
+    "category": "comfort",
+    "sourceHint": "Voice Control System (страница 228)"
+  },
+  {
+    "title": "Основные команды голосового управления MBUX",
+    "slug": "voice-commands-mbux",
+    "problem": "Какие основные команды голосового управления доступны в системе MBUX",
+    "category": "comfort",
+    "sourceHint": "Essential voice commands (страница 232)"
+  },
+  {
+    "title": "Настройка мультимедийной системы MBUX",
+    "slug": "mbux-settings",
+    "problem": "Как настроить мультимедийную систему MBUX",
+    "category": "comfort",
+    "sourceHint": "System settings (страница 281)"
+  },
+  {
+    "title": "Использование навигации MBUX",
+    "slug": "mbux-navigation-usage",
+    "problem": "Как пользоваться навигационной системой MBUX",
+    "category": "comfort",
+    "parameter": "navigation",
+    "sourceHint": "Navigation (страница 290)"
+  },
+  {
+    "title": "Подключение телефона к MBUX",
+    "slug": "phone-connection-mbux",
+    "problem": "Как подключить телефон к мультимедийной системе MBUX",
+    "category": "comfort",
+    "sourceHint": "Telephone (страница 331)"
+  },
+  {
+    "title": "Использование функций интернета и онлайн-сервисов",
+    "slug": "online-functions-usage",
+    "problem": "Как использовать функции интернета и онлайн-сервисов в автомобиле",
+    "category": "comfort",
+    "sourceHint": "Online and Internet functions (страница 359)"
+  },
+  {
+    "title": "Использование радио в автомобиле",
+    "slug": "radio-usage",
+    "problem": "Как пользоваться радио в автомобиле",
+    "category": "comfort",
+    "sourceHint": "Radio (страница 373)"
+  },
+  {
+    "title": "Настройка звука в автомобиле",
+    "slug": "sound-settings",
+    "problem": "Как настроить звук в мультимедийной системе",
+    "category": "comfort",
+    "sourceHint": "Sound (страница 381)"
+  },
+  {
+    "title": "Подключение и беспроводная зарядка телефона",
+    "slug": "phone-charging-connection",
+    "problem": "Как подключить телефон и использовать беспроводную зарядку",
+    "category": "comfort",
+    "sourceHint": "Wireless charging of the mobile phone and connection with the exterior antenna (страница 109)"
+  },
+  {
+    "title": "Установка и снятие ковриков",
+    "slug": "floor-mats-installation",
+    "problem": "Как правильно установить и снять коврики в салоне",
+    "category": "comfort",
+    "sourceHint": "Installing/removing the floor mats (страница 111)"
+  },
+  {
+    "title": "Использование подстаканников",
+    "slug": "cup-holder-usage",
+    "problem": "Как правильно использовать подстаканники",
+    "category": "comfort",
+    "sourceHint": "Cup holder (страница 106)"
+  },
+  {
+    "title": "Использование розеток в автомобиле",
+    "slug": "power-sockets-usage",
+    "problem": "Как правильно использовать розетки 12V и USB в автомобиле",
+    "category": "comfort",
+    "sourceHint": "Sockets (страница 108)"
+  },
+  {
+    "title": "Парковка автомобиля",
+    "slug": "parking-procedure",
+    "problem": "Как правильно парковать автомобиль",
+    "category": "driving",
+    "sourceHint": "Parking (страница 150)"
+  },
+  {
+    "title": "Использование функции Active Parking Assist",
+    "slug": "active-parking-assist-usage",
+    "problem": "Как пользоваться системой автоматической парковки Active Parking Assist",
+    "category": "driving",
+    "sourceHint": "Active Parking Assist (страница 200)"
+  },
+  {
+    "title": "Настройка функции DYNAMIC SELECT",
+    "slug": "dynamic-select-settings",
+    "problem": "Как настроить функцию DYNAMIC SELECT для изменения настроек автомобиля",
+    "category": "driving",
+    "sourceHint": "DYNAMIC SELECT switch (страница 139)"
+  },
+  {
+    "title": "Использование автоматической коробки передач",
+    "slug": "automatic-transmission-usage",
+    "problem": "Как правильно пользоваться автоматической коробкой передач",
+    "category": "driving",
+    "sourceHint": "Automatic transmission (страница 142)"
+  },
+  {
+    "title": "Функция 4MATIC",
+    "slug": "4matic-function",
+    "problem": "Как работает система полного привода 4MATIC",
+    "category": "driving",
+    "sourceHint": "Function of 4MATIC (страница 147)"
+  },
+  {
+    "title": "Использование круиз-контроля",
+    "slug": "cruise-control-usage",
+    "problem": "Как правильно использовать круиз-контроль",
+    "category": "driving",
+    "sourceHint": "Cruise control (страница 171)"
+  },
+  {
+    "title": "Использование системы Active Distance Assist DISTRONIC",
+    "slug": "distronic-usage",
+    "problem": "Как пользоваться системой адаптивного круиз-контроля Active Distance Assist DISTRONIC",
+    "category": "driving",
+    "sourceHint": "Active Distance Assist DISTRONIC (страница 174)"
+  },
+  {
+    "title": "Эвакуация автомобиля",
+    "slug": "towing-away-procedure",
+    "problem": "Как правильно эвакуировать автомобиль при поломке",
+    "category": "emergency",
+    "sourceHint": "Tow starting or towing away (страница 413)"
+  },
+  {
+    "title": "Запуск автомобиля с помощью буксировки",
+    "slug": "tow-starting-procedure",
+    "problem": "Как правильно запустить двигатель автомобиля с помощью буксировки",
+    "category": "emergency",
+    "sourceHint": "Tow starting or towing away (страница 414)"
+  },
+  {
+    "title": "Использование аварийного комплекта TIREFIT",
+    "slug": "tirefit-kit-usage",
+    "problem": "Как пользоваться аварийным комплектом TIREFIT для временного ремонта прокола",
+    "category": "emergency",
+    "sourceHint": "TIREFIT kit (страница 403)"
+  },
+  {
+    "title": "Замена колеса в случае прокола",
+    "slug": "flat-tire-replacement",
+    "problem": "Как правильно заменить колесо при проколе",
+    "category": "emergency",
+    "sourceHint": "Flat tire (страница 401)"
+  },
+  {
+    "title": "Использование знаков аварийной остановки",
+    "slug": "hazard-warning-triangles-usage",
+    "problem": "Как правильно использовать знаки аварийной остановки при поломке",
+    "category": "emergency",
+    "sourceHint": "Emergency (страница 401)"
+  },
+  {
+    "title": "Проверка и замена предохранителей",
+    "slug": "fuses-check-replacement",
+    "problem": "Как проверить и заменить предохранители в автомобиле",
+    "category": "electrics",
+    "sourceHint": "Electrical fuses (страница 418)"
+  },
+  {
+    "title": "Запуск автомобиля при разряженном аккумуляторе",
+    "slug": "battery-jump-start",
+    "problem": "Как правильно запустить двигатель при разряженном аккумуляторе",
+    "category": "electrics",
+    "sourceHint": "Battery (vehicle) (страница 408)"
+  },
+  {
+    "title": "Зарядка аккумулятора",
+    "slug": "battery-charging",
+    "problem": "Как правильно заряжать аккумулятор автомобиля",
+    "category": "electrics",
+    "sourceHint": "Battery (vehicle) (страница 408)"
+  },
+  {
+    "title": "Замена аккумулятора",
+    "slug": "battery-replacement",
+    "problem": "Как правильно заменить аккумулятор в автомобиле",
+    "category": "electrics",
+    "sourceHint": "Battery (vehicle) (страница 408)"
+  },
+  {
+    "title": "Использование функции SOS в автомобиле",
+    "slug": "sos-button-usage",
+    "problem": "Как пользоваться кнопкой SOS для вызова экстренных служб",
+    "category": "emergency",
+    "sourceHint": "me button and SOS button (страница 21, 352)"
+  },
+  {
+    "title": "Использование кнопки me для вызова экстренных служб",
+    "slug": "me-button-usage",
+    "problem": "Как пользоваться кнопкой me для вызова экстренных служб",
+    "category": "emergency",
+    "sourceHint": "me button and SOS button (страница 21, 352)"
+  },
+  {
+    "title": "Проверка уровня охлаждающей жидкости в расширительном бачке",
+    "slug": "coolant-expansion-tank-check",
+    "problem": "Как правильно проверить уровень охлаждающей жидкости в расширительном бачке",
+    "category": "maintenance",
+    "sourceHint": "Engine compartment (страница 386)"
+  },
+  {
+    "title": "Проверка уровня масла в коробке передач",
+    "slug": "transmission-fluid-check",
+    "problem": "Как правильно проверить уровень масла в автоматической коробке передач",
+    "category": "maintenance",
+    "sourceHint": "Engine compartment (страница 386)"
+  },
+  {
+    "title": "Замена масла в коробке передач",
+    "slug": "transmission-fluid-replacement",
+    "problem": "Как правильно заменить масло в автоматической коробке передач",
+    "category": "maintenance",
+    "sourceHint": "ASSYST PLUS service interval display (страница 385)"
+  },
+  {
+    "title": "Очистка и уход за кузовом автомобиля",
+    "slug": "car-body-cleaning",
+    "problem": "Как правильно очищать и ухаживать за кузовом автомобиля",
+    "category": "maintenance",
+    "sourceHint": "Cleaning and care (страница 391)"
+  },
+  {
+    "title": "Уход за салоном автомобиля",
+    "slug": "interior-cleaning",
+    "problem": "Как правильно очищать и ухаживать за салоном автомобиля",
+    "category": "maintenance",
+    "sourceHint": "Cleaning and care (страница 391)"
+  },
+  {
+    "title": "Использование оригинальных запчастей Mercedes-Benz",
+    "slug": "mercedes-genuine-parts-usage",
+    "problem": "Почему важно использовать оригинальные запчасти Mercedes-Benz",
+    "category": "maintenance",
+    "sourceHint": "Mercedes-Benz Genuine Parts (страница 22, 23)"
+  },
+  {
+    "title": "Экологичное вождение",
+    "slug": "eco-driving",
+    "problem": "Как водить автомобиль экологично и экономично",
+    "category": "driving",
+    "sourceHint": "Protecting the environment (страница 24)"
+  },
+  {
+    "title": "Проверка уровня жидкости в бачке омывателя фар",
+    "slug": "headlight-washer-fluid-check",
+    "problem": "Как правильно проверить и долить жидкость в бачок омывателя фар",
+    "category": "maintenance",
+    "sourceHint": "Engine compartment (страница 386)"
+  },
+  {
+    "title": "Замена ламп в автомобиле",
+    "slug": "bulb-replacement",
+    "problem": "Как правильно заменить лампы в автомобиле",
+    "category": "maintenance",
+    "sourceHint": "Exterior lighting (страница 113)"
+  },
+  {
+    "title": "Использование противоугонной системы",
+    "slug": "anti-theft-system-usage",
+    "problem": "Как пользоваться противоугонной системой автомобиля",
+    "category": "security",
+    "sourceHint": "Anti-theft protection (страница 86)"
+  },
+  {
+    "title": "Настройка функции памяти рулевого колеса",
+    "slug": "steering-wheel-memory-settings",
+    "problem": "Как настроить функцию памяти положения рулевого колеса",
+    "category": "comfort",
+    "sourceHint": "Operating the memory function (страница 98)"
+  }
+]

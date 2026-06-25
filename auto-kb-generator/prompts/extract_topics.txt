@@ -2,18 +2,20 @@
 
 Нужно найти темы, которые можно превратить в статьи для базы знаний авто-помощника.
 
-Верни JSON массив.
+Верни только JSON объект с полем "topics".
 
 Формат:
-[
-  {
-    "title": "Check Engine",
-    "slug": "check-engine",
-    "problem": "Горит Check Engine",
-    "category": "engine",
-    "sourceHint": "какой раздел мануала использовать"
-  }
-]
+{
+  "topics": [
+    {
+      "title": "Check Engine",
+      "slug": "check-engine",
+      "problem": "Горит Check Engine",
+      "category": "engine",
+      "sourceHint": "какой раздел мануала использовать"
+    }
+  ]
+}
 
 Правила:
 - Не придумывай темы, которых нет в тексте.
