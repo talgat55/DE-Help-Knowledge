@@ -1,0 +1,16 @@
+model:
+  name: "mistral-small-latest"
+  temperature: 0.2
+
+paths:
+  input_dir: "input"
+  output_dir: "articles"
+  logs_dir: "logs"
+
+generation:
+  max_topics: 30
+  max_articles: 5
+
+chunks:
+  chunk_size: 8000
+  relevant_chunks_limit: 3
