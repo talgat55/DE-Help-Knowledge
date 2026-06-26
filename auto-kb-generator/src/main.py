@@ -100,7 +100,7 @@ def main():
 
     article_template = (PROJECT_ROOT / "prompts" / "generate_article.txt").read_text(encoding="utf-8")
 
-    for topic in enumerate(topics[:MAX_ARTICLES], start=1):
+    for topic in topics[:MAX_ARTICLES]:
         prompt = article_template.format(
             brand=brand,
             model=model,
