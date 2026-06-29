@@ -1,5 +1,4 @@
 import os
-import json
 from pathlib import Path
 from dotenv import load_dotenv
 from mistralai.client import Mistral
@@ -10,6 +9,7 @@ from ai_client import chat_complete
 from topic_extractor import extract_topics_from_chunks
 from logger import PipelineLogger
 from config import load_config
+from stats import PipelineStats
 
 config = load_config()
 
@@ -26,6 +26,9 @@ CHUNK_SIZE = config["chunks"]["chunk_size"]
 RELEVANT_CHUNKS_LIMIT = config["chunks"]["relevant_chunks_limit"]
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 LOGS_DIR = config["paths"]["logs_dir"]
+
+STATS_DIR = config["paths"]["stats_dir"]
+stats = PipelineStats(STATS_DIR)
 
 load_dotenv()
 logger = PipelineLogger(LOGS_DIR)
@@ -50,22 +53,19 @@ def save_article(brand, model, year, slug, content, logger):
     path = f"{folder}/{slug}.md"
     if os.path.exists(path):
         logger.log(f"Skip exists: {path}")
-        return
+        return False
 
     with open(path, "w", encoding="utf-8") as f:
         f.write(content)
 
     logger.log(f"Saved: {path}")
+    return True
 
 def save_topics(brand, model, year, topics):
-    folder = f"output/{brand.lower()}/{model.lower().replace(' ', '-')}/{year}"
-    os.makedirs(folder, exist_ok=True)
-
+    folder = f"{OUTPUT_DIR}/{brand.lower()}/{model.lower().replace(' ', '-')}/{year}"
     path = f"{folder}/topics.json"
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(topics, f, ensure_ascii=False, indent=2)
-
-    logger.log(f"Topics saved: {len(topics)}")
+    save_json(path, topics)
+    logger.log(f"Topics saved: {len(topics)} -> {path}")
 
 
 def main():
@@ -75,6 +75,7 @@ def main():
     pdf_path = "input/Mercedes-Benz-A-Class_2020_EN-US_US_963552be46.pdf"
 
     full_text = read_pdf(pdf_path)
+    stats.data["pdf_files_total"] = 1
     chunks = split_text(full_text, chunk_size=CHUNK_SIZE)
     base_name = f"{brand.lower()}_{model.lower().replace(' ', '_')}_{year}"
     save_text(f"data/bronze/{base_name}_raw.txt", full_text)
@@ -100,6 +101,10 @@ def main():
 
     article_template = (PROJECT_ROOT / "prompts" / "generate_article.txt").read_text(encoding="utf-8")
 
+    created = 0
+    skipped = 0
+    errors = 0
+
     for topic in topics[:MAX_ARTICLES]:
         prompt = article_template.format(
             brand=brand,
@@ -111,8 +116,47 @@ def main():
         )
         prompt += f"\n\nТекст мануала:\n{full_text[:12000]}\n"
 
-        article = ask_ai(prompt)
-        save_article(brand, model, year, topic["slug"], article, logger=logger)
+        try:
+            article = ask_ai(prompt)
+
+            saved = save_article(
+                brand,
+                model,
+                year,
+                topic["slug"],
+                article,
+                logger=logger
+            )
+
+            if saved:
+                created += 1
+            else:
+                skipped += 1
+
+        except Exception as e:
+            errors += 1
+            logger.log(f"ERROR article {topic.get('slug')}: {e}")
+
+    stats.data["pdf_files_processed"] += 1
+    stats.data["topics_found"] += len(topics)
+    stats.data["articles_created"] += created
+    stats.data["articles_skipped"] += skipped
+    stats.data["article_errors"] += errors
+
+    stats.add_file_result({
+        "pdf": pdf_path,
+        "brand": brand,
+        "model": model,
+        "year": year,
+        "topics_found": len(topics),
+        "articles_created": created,
+        "articles_skipped": skipped,
+        "article_errors": errors
+    })
+
+    stats.finish()
+    logger.log(f"Stats saved: {stats.path}")
+    logger.log("Pipeline finished")
 
 if __name__ == "__main__":
     main()

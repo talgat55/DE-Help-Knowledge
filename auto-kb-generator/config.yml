@@ -6,6 +6,7 @@ paths:
   input_dir: "input"
   output_dir: "articles"
   logs_dir: "logs"
+  stats_dir: "stats"
 
 generation:
   max_topics: 30

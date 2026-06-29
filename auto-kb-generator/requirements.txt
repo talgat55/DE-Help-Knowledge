@@ -2,3 +2,5 @@ pymupdf
 mistralai
 python-dotenv
 python-slugify
+pyyaml
+httpx
