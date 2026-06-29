@@ -10,6 +10,7 @@ from topic_extractor import extract_topics_from_chunks
 from logger import PipelineLogger
 from config import load_config
 from stats import PipelineStats
+import argparse
 
 config = load_config()
 
@@ -33,6 +34,18 @@ stats = PipelineStats(STATS_DIR)
 load_dotenv()
 logger = PipelineLogger(LOGS_DIR)
 client = Mistral(api_key=os.getenv("MISTRAL_API_KEY"), timeout_ms=180_000)
+
+def parse_args():
+    parser = argparse.ArgumentParser(description="Auto KB ETL pipeline")
+    parser.add_argument("--pdf", required=True, help="Path to PDF manual")
+    parser.add_argument("--brand", required=True)
+    parser.add_argument("--model", required=True)
+    parser.add_argument("--year", required=True)
+    parser.add_argument("--max-articles", type=int, default=None)
+    parser.add_argument("--max-chunks", type=int, default=None)
+    parser.add_argument("--force-topics", action="store_true")
+    parser.add_argument("--skip-articles", action="store_true")
+    return parser.parse_args()
 
 def ask_ai(prompt: str) -> str:
     response = chat_complete(
@@ -69,10 +82,11 @@ def save_topics(brand, model, year, topics):
 
 
 def main():
-    brand = "Mercedes-Benz"
-    model = "A"
-    year = '2020'
-    pdf_path = "input/Mercedes-Benz-A-Class_2020_EN-US_US_963552be46.pdf"
+    args = parse_args()
+    brand = args.brand
+    model = args.model
+    year = args.year
+    pdf_path = PROJECT_ROOT / args.pdf
 
     full_text = read_pdf(pdf_path)
     stats.data["pdf_files_total"] = 1
